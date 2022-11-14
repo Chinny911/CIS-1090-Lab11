@@ -35,25 +35,32 @@ for ( let i = 0; i < words.length; i++ ){
         lookup[firstLetter] = [];
     }
 
-    // 
+    //Add the firstletter to the words array
     lookup[firstLetter].push(word);
 }
 
-// 💬
+// In the for loop, the in statement returns a boolean value (true or false) 
+//by checking to see if the firstLetter property is in the lookup object. 
+//If true, the value is assigned to the defined array named entry. 
 for ( firstLetter in lookup ){
    let entry = lookup[firstLetter];
 
-   // 💬
+   // The filter function creates a new array using an arrow function 
+   //that takes two parameters, the indexOf function checks to see if the 
+   //position of the items in the entry array is same as their index value 
    entry = entry.filter((item, index) => entry.indexOf(item) === index);
 
-   // 💬
+   //the sort function re-arranges the items/elements in the entry
+   //array in ascending order 
    entry = entry.sort();
 
-   // 💬
+   //This re-assigns the value of the property "firstletter"
+   //in the lookup object to the entry array
    lookup[firstLetter] = entry;
 }
 
-// 💬
-for ( letter of Object.keys(lookup).sort() ){
+//loops through the lookup object by sorting the property names
+//and then logs the letters and the lookup property values to the screen.
+ for ( letter of Object.keys(lookup).sort() ){
     console.log(letter, lookup[letter]);
 }
